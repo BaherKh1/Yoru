@@ -58,7 +58,7 @@ Build outputs (`toolchain/`, `bin/`, `obj/`, `artifacts/`, `release/`) are git-i
 
 ## Release
 
-The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready APKs for GitHub Releases live in `release/`, which is also git-ignored so APK binaries stay out of repository history. Attach them as GitHub Release assets instead.
+The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready payloads for GitHub Releases live in `release/`, which is also git-ignored so binaries stay out of repository history. Attach them as GitHub Release assets instead (`YORU-Android-V9.3.apk` and `YORU-Windows-V9.3.zip` — the Windows zip is the cleaned `windows/dist` package without debug symbols or build-diagnostics JSON).
 
 ## Repository layout
 
