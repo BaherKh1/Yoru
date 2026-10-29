@@ -1,4 +1,4 @@
-# YORU Android V9.3 ? More Back navigation (90309)
+# YORU Android V1.0 ? More Back navigation (90309)
 
 Root cause: GoBack handled Details specially but sent every other non-Home page to Home. More's child pages had no parent routing.
 

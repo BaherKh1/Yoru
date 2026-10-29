@@ -1,4 +1,4 @@
-# Android V9.3 startup compatibility build (90301)
+# Android V1.0 startup compatibility build (90301)
 
 Reported device: Redmi Note 8 Pro, Android 11; closes before the first screen.
 

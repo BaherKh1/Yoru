@@ -11,7 +11,7 @@ From this project directory, in PowerShell:
 ./test.ps1
 ```
 
-APK output: `artifacts/YORU-Android-V9.3.apk`. `build.ps1` uses the explicit `SignAndroidPackage` target, restores from the local offline feed when present and stops on failures. This SDK's plain managed Build/Publish invocation alone is not the delivery command.
+APK output: `artifacts/YORU-Android-V1.0.apk`. `build.ps1` uses the explicit `SignAndroidPackage` target, restores from the local offline feed when present and stops on failures. This SDK's plain managed Build/Publish invocation alone is not the delivery command.
 
 ## Fresh Windows setup
 

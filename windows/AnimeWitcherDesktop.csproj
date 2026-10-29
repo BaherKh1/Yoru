@@ -11,7 +11,7 @@
     <Description>YORU desktop anime streaming application</Description>
     <NuGetAudit>false</NuGetAudit>
     <UseSharedCompilation>false</UseSharedCompilation>
-    <Version>0.9.3</Version>
+    <Version>1.0.0</Version>
     <ApplicationIcon>Assets/yoru-v9.ico</ApplicationIcon>
     <PlatformTarget>x64</PlatformTarget>
     <ApplicationManifest>app.manifest</ApplicationManifest>

@@ -1,6 +1,6 @@
 # Responsive Explore, server validation and grouped downloads — build 90314
 
-Android-only update, application ID `app.yoru.android`, version name 9.3. The existing install, local settings, favorites, history and download files remain compatible. No Windows changes or framework/backend rewrite.
+Android-only update, application ID `app.yoru.android`, version name 1.0. The existing install, local settings, favorites, history and download files remain compatible. No Windows changes or framework/backend rewrite.
 
 ## Explore
 

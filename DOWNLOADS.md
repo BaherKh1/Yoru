@@ -1,6 +1,6 @@
 # Episode downloads — Android build 90313
 
-Version name 9.3, application ID `app.yoru.android`. Install the update over the existing APK; no uninstall or user-data migration is needed. Windows is unchanged.
+Version name 1.0, application ID `app.yoru.android`. Install the update over the existing APK; no uninstall or user-data migration is needed. Windows is unchanged.
 
 ## Using downloads
 
@@ -49,7 +49,7 @@ Release compilation, signature, version/permissions/service metadata, original f
 
 ## Phone checks
 
-1. Install `YORU-Android-V9.3-downloads.apk` over the installed YORU app. Confirm existing favorites/history/settings remain.
+1. Install `YORU-Android-V1.0-downloads.apk` over the installed YORU app. Confirm existing favorites/history/settings remain.
 2. Details → download icon → switch servers → select an advertised quality → Download. Verify progress on the episode and under More → Downloads.
 3. Navigate away, press Android Home and switch off the screen briefly; check the notification/progress. Test its cancel action and retry from Downloads.
 4. Complete a direct source and a compatible HLS source. Enable airplane mode, reopen Downloads and play both; seek, pause/resume and check audio/video. Relaunch and verify saved progress and statuses.

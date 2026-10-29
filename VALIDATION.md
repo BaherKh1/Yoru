@@ -1,11 +1,11 @@
-# Android V9.3 validation and limits
+# Android V1.0 validation and limits
 
 Latest build: **90317**, with 20 portable core groups passing. New coverage validates the offline navigation contract (launch redirect, online-only/tap gating, local-page preservation) and the connectivity debounce (grace boundaries, definitive loss commit, Wi-Fi↔data hand-over absorption, immediate recovery, single-shot events, EN/AR copy). See [RESPONSIVE-SERVERS-UPDATE.md](RESPONSIVE-SERVERS-UPDATE.md) and `evidence/responsive-servers-summary.json`. Native Android UI, background behavior and device playback remain unverified.
 
 ## Verified
 
 - Ran the delivered build.ps1 against the final source: Release SignAndroidPackage build succeeded with zero warnings/errors.
-- Created a self-contained APK with embedded .NET runtime/assemblies for arm64-v8a and x86_64. Android package app.yoru.android, version 9.3 / 90314, min API 26, target/compile API 36, YORU label and adaptive icon. Native launcher activity is present.
+- Created a self-contained APK with embedded .NET runtime/assemblies for arm64-v8a and x86_64. Android package app.yoru.android, version 1.0 / 90314, min API 26, target/compile API 36, YORU label and adaptive icon. Native launcher activity is present.
 - apksigner verify succeeded with APK v2/v3 signatures. The signer is CN=Android Debug: development/sideload certificate, not a production release key.
 - APK ZIP/CRC passed. Manifest includes INTERNET, ACCESS_NETWORK_STATE and normal permissions merged by AndroidX/Media3 (WAKE_LOCK and the package-scoped dynamic-receiver permission). No storage, camera, microphone or contacts permission is requested. Media3 is released on backgrounding; the app does not implement background playback.
 - Eleven portable core groups passed: reused API configuration/models/Unicode search/details/episode fallback/server mapping; extensionless HLS MIME preservation; reused MF/KF/PD/ST resolver and rejection/cancellation fixtures; persistent bounded/corrupt-safe startup cache; English defaults and EN/AR preference persistence; favorites/restart; individual/bulk history/progress deletion and stale-save protection; paged request deduplication/end/retry; shared cache request coalescing; 320-1280dp phone/tablet layout contract; live backend compatibility.

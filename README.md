@@ -32,7 +32,7 @@ Android package ID `app.yoru.android` · Android 8.0 (API 26)+ · arm64-v8a / x8
 # One-time environment setup (downloads into ./toolchain, fully offline afterwards)
 ./setup.ps1
 
-# Restore + build + sign a Release APK into artifacts/YORU-Android-V9.3.apk
+# Restore + build + sign a Release APK into artifacts/YORU-Android-V1.0.apk
 ./build.ps1 -JavaSdkDirectory "<path to JDK 21>"
 
 # Run the core regression suite (20 offline-testable groups)
@@ -58,7 +58,7 @@ Build outputs (`toolchain/`, `bin/`, `obj/`, `artifacts/`, `release/`) are git-i
 
 ## Release
 
-The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready payloads for GitHub Releases live in `release/`, which is also git-ignored so binaries stay out of repository history. Attach them as GitHub Release assets instead (`YORU-Android-V9.3.apk` and `YORU-Windows-V9.3.zip` — the Windows zip is the cleaned `windows/dist` package without debug symbols or build-diagnostics JSON).
+The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready payloads for GitHub Releases live in `release/`, which is also git-ignored so binaries stay out of repository history. Attach them as GitHub Release assets instead (`YORU-Android-V1.0.apk` and `YORU-Windows-V1.0.zip` — the Windows zip is the cleaned `windows/dist` package without debug symbols or build-diagnostics JSON).
 
 ## Repository layout
 

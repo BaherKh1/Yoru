@@ -1,6 +1,6 @@
 # Explore grid and player glass update — build 90312
 
-Android-only update, package `app.yoru.android`, version 9.3. Install over the existing app to retain local settings, favorites and playback progress.
+Android-only update, package `app.yoru.android`, version 1.0. Install over the existing app to retain local settings, favorites and playback progress.
 
 ## Explore
 

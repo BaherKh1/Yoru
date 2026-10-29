@@ -1,4 +1,4 @@
-# YORU Android V9.3 — cinematic interface (90302)
+# YORU Android V1.0 — cinematic interface (90302)
 
 The visual reference was a provided design mockup image: an edge-to-edge anime image beneath the status bar, small branding/search above, and readable title/actions over the lower gradient. This implementation keeps YORU's #090C14 background and #8B5CF6/#A78BFA accents.
 
@@ -26,7 +26,7 @@ The copied API/resolver, Media3 player, MobileStore, storage paths, package iden
 - The 200×44 blur fixture averaged 0.57ms on this Windows host. This is not phone frame-rate, memory, or GPU profiling.
 - No connected Android device was available and the local emulator cannot boot with the available setup. Actual rendered layouts, rapid taps, touch scrolling, system-inset behavior and streaming on hardware remain unverified. See the manual checklist in DEVICE-TESTS.md. No device-runtime or FPS claim is made.
 
-Build with the existing `build.ps1`; output remains `artifacts/YORU-Android-V9.3.apk`. A separately named delivery copy is produced outside the repository.
+Build with the existing `build.ps1`; output remains `artifacts/YORU-Android-V1.0.apk`. A separately named delivery copy is produced outside the repository.
 
 ## Subsequent corrections
 

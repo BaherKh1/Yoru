@@ -1,4 +1,4 @@
-# YORU Android V9.3 corrections — build 90303
+# YORU Android V1.0 corrections — build 90303
 
 ## 1. Stable bottom navigation
 

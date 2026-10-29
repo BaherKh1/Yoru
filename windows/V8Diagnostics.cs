@@ -24,7 +24,7 @@ internal static class V8Diagnostics
         try {
             Check(typeof(App).Assembly.GetName().Name=="YORU" && Path.GetFileName(Environment.ProcessPath)=="YORU.exe","Assembly or executable name is not YORU");
             var metadata=FileVersionInfo.GetVersionInfo(Environment.ProcessPath!);
-            Check(metadata.ProductName=="YORU" && metadata.FileDescription=="YORU" && metadata.ProductVersion=="0.9.3","Windows executable metadata is not YORU V8");
+            Check(metadata.ProductName=="YORU" && metadata.FileDescription=="YORU" && metadata.ProductVersion=="1.0.0","Windows executable metadata is not YORU V8");
             checks.Add("YORU.exe / YORU.dll and Windows product, description and V8 version metadata");
             Check(GetCurrentProcessExplicitAppUserModelID(out var id)==0,"Taskbar identity not available");
             try { Check(Marshal.PtrToStringUni(id)==AppIdentity.TaskbarId,"Old taskbar identity"); } finally { Marshal.FreeCoTaskMem(id); }

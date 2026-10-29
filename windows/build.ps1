@@ -20,5 +20,5 @@ try {
     foreach ($folder in @('plugins', 'lua', 'hrtfs')) {
         Copy-Item -LiteralPath (Join-Path $vlcSource $folder) -Destination $vlcTarget -Recurse -Force
     }
-    Copy-Item -LiteralPath 'README.md','VALIDATION.md','PERFORMANCE.md','V9-CHANGES.md','V9.1-CHANGES.md','V9.2-CHANGES.md','V9.3-CHANGES.md','BRANDING.md','STARTUP.md','Create-Desktop-Shortcut.ps1','THIRD-PARTY.md' -Destination dist -Force
+    Copy-Item -LiteralPath 'README.md','VALIDATION.md','PERFORMANCE.md','V9-CHANGES.md','V9.1-CHANGES.md','V9.2-CHANGES.md','V1.0-CHANGES.md','BRANDING.md','STARTUP.md','Create-Desktop-Shortcut.ps1','THIRD-PARTY.md' -Destination dist -Force
 } finally { Pop-Location }

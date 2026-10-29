@@ -13,7 +13,7 @@ Chosen framework: native .NET for Android, not MAUI/WebView. The existing Window
 
 Android data resides in the app's private `files/yoru` directory; poster cache is under the Android cache directory. It is independent of `%LOCALAPPDATA%/YORU` on Windows. There is no cloud account/history sync or desktop-to-phone migration in this version.
 
-Package `app.yoru.android`, version `9.3`/`90307`, min API 26 and target API 36. ARM64 and x86-64 are packaged. Release trimming/AOT are intentionally disabled in this first build to keep shared JSON/reflection/binding behavior reliable; device profiling should precede further startup/size optimization.
+Package `app.yoru.android`, version `1.0`/`90307`, min API 26 and target API 36. ARM64 and x86-64 are packaged. Release trimming/AOT are intentionally disabled in this first build to keep shared JSON/reflection/binding behavior reliable; device profiling should precede further startup/size optimization.
 
 
 ## Build 90313: downloads

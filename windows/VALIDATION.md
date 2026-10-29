@@ -1,6 +1,6 @@
-# YORU V9.3 validation
+# YORU V1.0 validation
 
-Windows x64 / .NET 8 WPF / LibVLCSharp.WPF 3.10.2 / bundled VLC 3.0.24. Final Release 0.9.3 publish completed with zero warnings/errors.
+Windows x64 / .NET 8 WPF / LibVLCSharp.WPF 3.10.2 / bundled VLC 3.0.24. Final Release 1.0.0 publish completed with zero warnings/errors.
 
 112 UI/regression groups passed on the final executable:
 
@@ -11,7 +11,7 @@ Windows x64 / .NET 8 WPF / LibVLCSharp.WPF 3.10.2 / bundled VLC 3.0.24. Final Re
 - --v9-checks evidence: 7 startup caching/skeleton/offline/cancellation groups.
 - --overlay-smoke: 26 video-control groups.
 - --icon-smoke: 5 icon/native-player initialization groups.
-- --v8-checks evidence: 6 branding/metadata/storage compatibility groups, updated for version 0.9.3.
+- --v8-checks evidence: 6 branding/metadata/storage compatibility groups, updated for version 1.0.0.
 - --v7-checks evidence: 12 fixed-details/episode-scroll/image groups.
 - --v6-checks evidence: 9 cache/recycling/navigation/history/playback-health groups.
 
@@ -27,4 +27,4 @@ Tests cloak their native diagnostic player window to avoid covering the desktop.
 
 Twenty-three API/player-overlay/card/main-UI/sidebar/cache/storage/theme/artwork files remain byte-identical to V9.2. Only player window bounds, related diagnostics, version metadata and release docs changed. Existing user data and desktop shortcut are preserved; prior ZIPs remain separate.
 
-Evidence: v93-window-before.json, v93-window-checks.json, v93-test-summary.json and v93-preserved-code.json under the source evidence directory. The separate YORU-V9.3.zip is checked for required runtime files and CRC integrity. STARTUP.md and PERFORMANCE.md retain historical measurements.
+Evidence: v93-window-before.json, v93-window-checks.json, v93-test-summary.json and v93-preserved-code.json under the source evidence directory. The separate YORU-Windows-V1.0.zip is checked for required runtime files and CRC integrity. STARTUP.md and PERFORMANCE.md retain historical measurements.

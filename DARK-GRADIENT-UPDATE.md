@@ -1,4 +1,4 @@
-# YORU Android V9.3 ? dark gradient glass (90307)
+# YORU Android V1.0 ? dark gradient glass (90307)
 
 Removed the milky-white/lavender wash introduced in 90306. Re-examined bar.png and sampled unlabelled surface pixels: the reference ranges from muted purple/blue-gray around the left side to near-neutral charcoal in the center and darker violet at the right.
 

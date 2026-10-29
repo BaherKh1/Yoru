@@ -1,4 +1,4 @@
-# YORU Android V9.3 — glass navigation and Home tap (90304)
+# YORU Android V1.0 — glass navigation and Home tap (90304)
 
 Reference reviewed: the provided navigation bar mockup image. The pill is dark translucent glass with posters visible beneath it, muted icons/labels and a purple Home selection.
 

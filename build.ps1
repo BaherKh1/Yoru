@@ -21,6 +21,6 @@ try {
  & $dotnet build src/Yoru.Android/Yoru.Android.csproj -c Release -t:SignAndroidPackage --no-restore "-p:AndroidSdkDirectory=$AndroidSdkDirectory" "-p:JavaSdkDirectory=$JavaSdkDirectory" -m:1 -nr:false
  if($LASTEXITCODE -ne 0){throw 'APK build failed'}
  New-Item -ItemType Directory -Path artifacts -Force | Out-Null
- Copy-Item -LiteralPath src/Yoru.Android/bin/Release/net10.0-android/app.yoru.android-Signed.apk -Destination artifacts/YORU-Android-V9.3.apk -Force
- Write-Output 'APK: artifacts/YORU-Android-V9.3.apk (development certificate; see BUILD.md for production signing).'
+ Copy-Item -LiteralPath src/Yoru.Android/bin/Release/net10.0-android/app.yoru.android-Signed.apk -Destination artifacts/YORU-Android-V1.0.apk -Force
+ Write-Output 'APK: artifacts/YORU-Android-V1.0.apk (development certificate; see BUILD.md for production signing).'
 } finally {Pop-Location}

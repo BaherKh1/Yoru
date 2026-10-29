@@ -1,4 +1,4 @@
-# YORU Android V9.3 ? whitened glass (90306)
+# YORU Android V1.0 ? whitened glass (90306)
 
 The bottom navigation now uses a less transparent dark-lavender base, a permanent white/lavender gradient wash, a pale glass border and stronger soft blur (14dp on Android 12+, radius 3 on the downsampled older-Android fallback). The frost opacity increases from 38% to 50%. These layers are constant during scrolling; there is no new per-frame capture or scroll-triggered restyling.
 

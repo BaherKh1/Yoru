@@ -53,7 +53,7 @@ public sealed class PosterCache
                 ct.ThrowIfCancellationRequested();lock(gate){if(memory.TryGetValue(key,out var already)){memory[key]=already with{Stamp=++stamp};return already.Image;}}var file=Path.Combine(directory,Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(url)))+".img");byte[] encoded;
                 if(File.Exists(file) && File.GetLastWriteTimeUtc(file)>DateTime.UtcNow.AddDays(-14))encoded=await File.ReadAllBytesAsync(file,ct).ConfigureAwait(false);
                 else {
-                    using var request=new HttpRequestMessage(HttpMethod.Get,url);request.Headers.UserAgent.ParseAdd("YORU-Android/9.3");
+                    using var request=new HttpRequestMessage(HttpMethod.Get,url);request.Headers.UserAgent.ParseAdd("YORU-Android/1.0");
                     using var response=await http.SendAsync(request,HttpCompletionOption.ResponseHeadersRead,ct).ConfigureAwait(false);response.EnsureSuccessStatusCode();
                     if(response.Content.Headers.ContentLength>8*1024*1024)continue;
                     using var body=await response.Content.ReadAsStreamAsync(ct).ConfigureAwait(false);using var output=new MemoryStream();var buffer=new byte[16384];int count;

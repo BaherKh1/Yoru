@@ -1,4 +1,4 @@
-# YORU Android V9.3 — reference glass and Explore tap (90305)
+# YORU Android V1.0 — reference glass and Explore tap (90305)
 
 Reviewed the provided navigation bar mockup again. The bar now has a darker, neutral-purple translucent base (#5C1C1C28), a softer gray/purple border (#387E748E), a restrained dark tint (#20181723), and a more visible purple selection surface (#4D8B5CF6). The frosted layer uses 38% opacity with 10dp GPU blur on Android 12+; older Android uses radius 2 on the existing one-fifth-size capture. Android 9+ additionally sets soft ambient/spot shadow colors. Pill dimensions, 24dp outer rounding, 25dp icons, labels, touch targets and 225ms selection movement are retained.
 

@@ -1,4 +1,4 @@
-# YORU Android V9.3 ? exact catalog return (90310)
+# YORU Android V1.0 ? exact catalog return (90310)
 
 The old code saved only a first-visible adapter index and restored it with pixel offset 0. That request could be superseded by another asynchronous feed rebuild. It also kept catalog pointing at the origin while in Details, then wrote the Details scroll index into that catalog session during navigation.
 

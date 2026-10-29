@@ -1,4 +1,4 @@
-# YORU Android V9.3 ? custom Home artwork / Trending removal (90311)
+# YORU Android V1.0 ? custom Home artwork / Trending removal (90311)
 
 ## Trending removed
 

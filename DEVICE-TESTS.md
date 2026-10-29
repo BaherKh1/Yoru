@@ -8,7 +8,7 @@ Use an Android 8.0+ ARM64 phone/tablet or x86-64 Android emulator. Copy the APK 
 
 ```powershell
 ./toolchain/android-sdk/platform-tools/adb.exe devices
-./toolchain/android-sdk/platform-tools/adb.exe install -r artifacts/YORU-Android-V9.3.apk
+./toolchain/android-sdk/platform-tools/adb.exe install -r artifacts/YORU-Android-V1.0.apk
 ./toolchain/android-sdk/platform-tools/adb.exe shell monkey -p app.yoru.android -c android.intent.category.LAUNCHER 1
 ```
 
