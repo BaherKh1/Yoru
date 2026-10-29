@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // WM_GETMINMAXINFO and GetMonitorInfo use the same native coordinate space.
 // Do not mix these bounds with primary-screen sizes or WPF/DIP taskbar estimates.

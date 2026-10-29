@@ -6,14 +6,14 @@ using System.Text;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public sealed class PlaybackException(string key, params object[] args) : Exception { public override string Message => L.T(key, args); }
 
 // Resolves media, never launches a page or executes remotely supplied JavaScript.
 public sealed class PlaybackResolver(HttpClient http, Func<string, CancellationToken, Task<JsonObject?>> configuration)
 {
-    public const string UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AnimeWitcherDesktop/0.2";
+    public const string UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) YORU/0.2";
     public async Task<VideoServer> Resolve(VideoServer server, CancellationToken ct)
     {
         if (!Data.WebUrl(server.Link)) throw new PlaybackException("UnsupportedLink");

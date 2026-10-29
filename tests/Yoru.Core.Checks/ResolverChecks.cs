@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 
 static class ResolverChecks
 {

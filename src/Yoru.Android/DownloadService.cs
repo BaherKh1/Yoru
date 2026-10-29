@@ -2,7 +2,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 using DownloadStatus=Yoru.Core.DownloadStatus;
 using OperationCanceledException=System.OperationCanceledException;

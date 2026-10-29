@@ -2,7 +2,7 @@ using System.IO;
 using System.Text.Json;
 using LibVLCSharp.Shared;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public sealed class PlaybackHealth
 {

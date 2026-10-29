@@ -3,7 +3,7 @@
 YORU ships in two flavors in this repository:
 
 - **Android app** (`src/`): native .NET for Android (net10.0-android) client using AndroidX RecyclerView and **Media3/ExoPlayer** — self-contained, with its own storage, cache and preferences.
-- **Windows desktop client** (`windows/`): the original .NET 8 WPF application (`AnimeWitcherDesktop`) with the LibVLCSharp playback engine, sharing the same core network/resolver/localization sources with the Android client.
+- **Windows desktop client** (`windows/`): the original .NET 8 WPF application (`Yoru`) with the LibVLCSharp playback engine, sharing the same core network/resolver/localization sources with the Android client.
 
 Both target Android 8.0 (API 26) / Windows and share the same media pipeline approach, server handling, download model, and EN/AR localization feature set.
 
@@ -43,11 +43,11 @@ If your environment already provides `dotnet`, a JDK and an Android SDK, `build.
 
 ### Windows desktop client (WPF)
 
-`windows/` contains the .NET 8 WPF version (`AnimeWitcherDesktop`, `net8.0-windows`) — the shared core (`WitcherApi`, `PlaybackResolver`, caches, localization) used by both clients. Build it with the .NET SDK:
+`windows/` contains the .NET 8 WPF version (`Yoru`, `net8.0-windows`) — the shared core (`CatalogApi`, `PlaybackResolver`, caches, localization) used by both clients. Build it with the .NET SDK:
 
 ```powershell
-dotnet restore windows/AnimeWitcherDesktop.csproj --configfile windows/NuGet.Config
-dotnet publish windows/AnimeWitcherDesktop.csproj -c Release -o windows/dist
+dotnet restore windows/YORU.Desktop.csproj --configfile windows/NuGet.Config
+dotnet publish windows/YORU.Desktop.csproj -c Release -o windows/dist
 ```
 
 The publish step bundles the native VLC playback engine from an installed VLC 3 x64 (`libvlc.dll`, `plugins`, …), or see `windows/build.ps1` which performs the full icon/publish/bundle sequence. Application data lives in `%LOCALAPPDATA%/YORU`; `windows/certs/` holds the public Mozilla CA bundle used for HTTPS validation (no private keys).
@@ -66,7 +66,7 @@ The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready paylo
 ├── src/
 │   ├── Yoru.Android/      # Native Android app (activities, views, services, connectivity)
 │   └── Yoru.Core/         # Shared core: API, playback resolution, downloads, offline contracts
-├── windows/               # Windows WPF desktop client (AnimeWitcherDesktop, .NET 8)
+├── windows/               # Windows WPF desktop client (Yoru, .NET 8)
 │   ├── Assets/            # Icons, branding artwork and icon build scripts
 │   ├── Controls/ Themes/  # WPF controls and styling
 │   ├── Localization/      # Embedded EN/AR strings

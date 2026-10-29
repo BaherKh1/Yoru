@@ -1,6 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 public partial class AnimeCard : UserControl
 {
     public static readonly RoutedEvent SelectedEvent = EventManager.RegisterRoutedEvent(nameof(Selected), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(AnimeCard));

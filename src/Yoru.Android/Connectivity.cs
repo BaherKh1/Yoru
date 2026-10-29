@@ -42,7 +42,7 @@ internal sealed class ConnectivityMonitor : ConnectivityManager.NetworkCallback
             ConnectTimeout = TimeSpan.FromSeconds(3),
             PooledConnectionLifetime = TimeSpan.FromMinutes(2)
         }) { Timeout = TimeSpan.FromSeconds(4) };
-        client.DefaultRequestHeaders.UserAgent.ParseAdd("AnimeWitcherDesktop/0.1");
+        client.DefaultRequestHeaders.UserAgent.ParseAdd("YORU/0.1");
         return client;
     }
 

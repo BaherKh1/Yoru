@@ -13,16 +13,16 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using AnimeWitcherDesktop.Controls;
+using Yoru.Controls;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class V7Diagnostics
 {
     internal static async Task<int> Run(string directory)
     {
         directory=Path.GetFullPath(directory);
-        var scratch=Path.Combine(Path.GetTempPath(),"witcher-v7-"+Guid.NewGuid().ToString("N"));
+        var scratch=Path.Combine(Path.GetTempPath(),"yoru-v7-"+Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(scratch);
         var checks=new List<string>(); string? error=null; MainWindow? window=null;
         using var host=new HwndSource(new HwndSourceParameters("Hidden V7 regressions") { Width=1920,Height=1080,WindowStyle=unchecked((int)0x80000000) });

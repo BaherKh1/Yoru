@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 
 // Visual-only companion to the existing RadioButton/ShowPage navigation.
 internal sealed class SidebarMotion : IDisposable

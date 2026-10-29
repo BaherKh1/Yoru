@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class IconDiagnostics
 {

@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public record PlaybackSession(VideoServer Stream, string Title, double Position, Anime Anime, Episode Episode, DateTime? StartedUtc = null);
 internal static class PlayerLauncher
 {

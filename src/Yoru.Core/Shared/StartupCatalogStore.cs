@@ -2,7 +2,7 @@ using System.IO;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Only the public first-page catalog metadata is persisted. No credentials,
 // episode streams, server responses or resolved media URLs are stored here.

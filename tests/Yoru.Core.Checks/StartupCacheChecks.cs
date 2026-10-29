@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 
 internal static class StartupCacheChecks
 {

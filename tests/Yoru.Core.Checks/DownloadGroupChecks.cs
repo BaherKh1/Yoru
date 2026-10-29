@@ -1,5 +1,5 @@
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 internal static class DownloadGroupChecks
 {

@@ -5,14 +5,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
-using AnimeWitcherDesktop.Controls;
+using Yoru.Controls;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
     private readonly SidebarMotion sidebarMotion;
-    private readonly WitcherApi api = new();
+    private readonly CatalogApi api = new();
     private readonly LibraryStore library;
     private readonly ApiDataCache dataCache;
     private readonly HistoryStore history;

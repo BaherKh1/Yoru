@@ -5,7 +5,7 @@ Version name 1.0, application ID `app.yoru.android`. Install the update over the
 ## Using downloads
 
 1. Open an anime's details and tap the download icon beside an episode.
-2. Pick a server in the glass popup. The list comes from the same `WitcherApi.Servers` used by streaming, and media resolution uses the existing `PlaybackResolver`.
+2. Pick a server in the glass popup. The list comes from the same `CatalogApi.Servers` used by streaming, and media resolution uses the existing `PlaybackResolver`.
 3. Pick a real quality and tap **Download**. HLS resolutions/bitrates come from the manifest. Direct files expose the server's advertised quality; an unspecified resolution is honestly labeled **Original source quality**, with no invented 360p/720p list.
 4. The episode row and Android notification show progress. Open **More → Downloads** to manage jobs, retry, cancel, play completed episodes offline, or confirm deletion.
 

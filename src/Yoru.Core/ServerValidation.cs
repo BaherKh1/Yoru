@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 
 public sealed class ServersUnavailable(bool network=false):Exception("Servers unavailable"){public bool Network{get;}=network;}

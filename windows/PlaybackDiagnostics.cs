@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text.Json;
 using LibVLCSharp.Shared;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class PlaybackDiagnostics
 {

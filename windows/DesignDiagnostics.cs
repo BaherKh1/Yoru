@@ -9,13 +9,13 @@ using System.Windows.Threading;
 using System.Windows.Interop;
 using System.Windows.Input;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 internal static class DesignDiagnostics
 {
     public static async Task<int> Run(string directory)
     {
         var checks = new List<string>(); string? error = null;
-        var scratch = Path.Combine(Path.GetTempPath(), "witcher-library-check-" + Guid.NewGuid().ToString("N"));
+        var scratch = Path.Combine(Path.GetTempPath(), "yoru-library-check-" + Guid.NewGuid().ToString("N"));
         MainWindow? window = null;
         try
         {

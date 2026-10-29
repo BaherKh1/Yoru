@@ -1,9 +1,9 @@
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 public sealed class AppState : IDisposable
 {
     public PlaybackRequest? Playback{get;set;}
-    public WitcherApi Api{get;}=new();public ApiDataCache Cache{get;}public MobileStore Store{get;}public StartupCatalogStore HomeStore{get;}public EpisodeLibrary Episodes{get;}
+    public CatalogApi Api{get;}=new();public ApiDataCache Cache{get;}public MobileStore Store{get;}public StartupCatalogStore HomeStore{get;}public EpisodeLibrary Episodes{get;}
     public ServerValidation Servers{get;}
     public SearchPage? Home{get;private set;}public string? HomeError{get;private set;}public bool Ready{get;private set;}public event Action? Changed;
     private readonly Dictionary<string,CatalogSession> sessions=new();private Task? startup;

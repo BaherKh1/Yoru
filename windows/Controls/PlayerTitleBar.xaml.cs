@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 public partial class PlayerTitleBar : UserControl
 {
     public PlayerTitleBar() => InitializeComponent();

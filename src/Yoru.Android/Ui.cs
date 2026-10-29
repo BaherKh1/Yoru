@@ -3,7 +3,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Views;
 using Android.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.AndroidApp;
 internal static class Ui
 {

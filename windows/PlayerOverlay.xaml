@@ -1,6 +1,6 @@
-<UserControl FlowDirection="{Binding Direction, Source={x:Static i18n:Locale.Current}}" x:Class="AnimeWitcherDesktop.PlayerOverlay"
+<UserControl FlowDirection="{Binding Direction, Source={x:Static i18n:Locale.Current}}" x:Class="Yoru.PlayerOverlay"
  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
- xmlns:i18n="clr-namespace:AnimeWitcherDesktop" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ xmlns:i18n="clr-namespace:Yoru" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
  Focusable="True" FocusVisualStyle="{x:Null}" Background="Transparent">
  <UserControl.Resources>
   <Style x:Key="IconButton" TargetType="Button">

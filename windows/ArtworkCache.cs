@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Media.Imaging;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Disk originals, display-sized frozen bitmaps, and cancellable queued decoding.
 public sealed class ArtworkCache : IDisposable
@@ -29,7 +29,7 @@ public sealed class ArtworkCache : IDisposable
         this.directory = directory ?? Path.Combine(AppStorage.DirectoryPath,"artwork-v6");
         budget = memoryBudget;
         http = handler is null ? new HttpClient(new SocketsHttpHandler { MaxConnectionsPerServer=4, PooledConnectionLifetime=TimeSpan.FromMinutes(5) }) : new HttpClient(handler);
-        http.Timeout=TimeSpan.FromSeconds(20); http.DefaultRequestHeaders.UserAgent.ParseAdd("AnimeWitcherDesktop/0.6");
+        http.Timeout=TimeSpan.FromSeconds(20); http.DefaultRequestHeaders.UserAgent.ParseAdd("YORU/0.6");
     }
     public object Snapshot() { lock(sync) return new { decodedBytes=bytes, decodedEntries=memory.Count, failures=failed.Count, lastFailure, downloads=Interlocked.Read(ref requests), decodes=Interlocked.Read(ref decodes), hits=Interlocked.Read(ref hits) }; }
     public bool TryReady(string location,int width,int height,out BitmapSource? image)

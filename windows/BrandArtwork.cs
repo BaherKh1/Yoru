@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace AnimeWitcherDesktop
+namespace Yoru
 {
     // Shared by the app and the asset builder: use original image pixels and
     // exclude the wordmark from small icons without redrawing the illustration.

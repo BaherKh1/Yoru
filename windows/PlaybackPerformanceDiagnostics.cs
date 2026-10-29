@@ -4,7 +4,7 @@ using System.Text.Json;
 using System.Windows.Interop;
 using LibVLCSharp.Shared;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class PlaybackPerformanceDiagnostics
 {
@@ -20,7 +20,7 @@ internal static class PlaybackPerformanceDiagnostics
                 var gpuObserved=0; var gpuErrors=0; var lateMessages=0;
                 engine.Log += (_, log) => { if(log.FormattedLog.Contains("Using D3D11VA",StringComparison.OrdinalIgnoreCase)||log.FormattedLog.Contains("Using DXVA2",StringComparison.OrdinalIgnoreCase)) Interlocked.Increment(ref gpuObserved); if(log.Level==LogLevel.Error && ((log.Module??"").Contains("d3d11",StringComparison.OrdinalIgnoreCase)||(log.Module??"").Contains("dxva",StringComparison.OrdinalIgnoreCase))) Interlocked.Increment(ref gpuErrors); if(log.FormattedLog.Contains("late",StringComparison.OrdinalIgnoreCase)) Interlocked.Increment(ref lateMessages); };
                 using var player = new LibVLCSharp.Shared.MediaPlayer(engine) { Hwnd=handle, EnableHardwareDecoding=!software };
-                var commandType=typeof(PlayerWindow).Assembly.GetType("AnimeWitcherDesktop.PlaybackCommands");
+                var commandType=typeof(PlayerWindow).Assembly.GetType("Yoru.PlaybackCommands");
                 var commands=commandType is null?null:Activator.CreateInstance(commandType);
                 async Task Apply(Action action) { if(commands is null) action(); else await (Task)commandType!.GetMethod("Enqueue")!.Invoke(commands,new object[] { action })!; }
                 measures["queuedNativeCommands"]=commands is not null;

@@ -1,4 +1,4 @@
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // LibVLC seek/pause/stop can wait on demux/decoder work. Serialize away from WPF.
 public sealed class PlaybackCommands

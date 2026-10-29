@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Keep native decoder crashes isolated. A crashed player leaves its marker; the
 // next player uses full-quality software decoding for a day instead of crashing

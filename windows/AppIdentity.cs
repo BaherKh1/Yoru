@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class AppIdentity
 {

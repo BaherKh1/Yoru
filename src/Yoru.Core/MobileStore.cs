@@ -1,5 +1,5 @@
 using System.Text.Json;
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 public record WatchProgress(Anime Anime,Episode Episode,double Seconds,double Duration,DateTime Updated);
 public sealed class MobileStore

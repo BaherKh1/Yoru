@@ -1,4 +1,4 @@
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 public sealed class CatalogSession
 {

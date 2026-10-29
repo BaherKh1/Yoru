@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Text.Json;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class PlayerOverlayDiagnostics
 {

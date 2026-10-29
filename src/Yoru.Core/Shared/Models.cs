@@ -1,5 +1,5 @@
 using System.Text.Json.Nodes;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public static class Data
 {

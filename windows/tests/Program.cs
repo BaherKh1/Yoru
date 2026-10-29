@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 
 static void Check(bool condition, string message) { if (!condition) throw new Exception(message); }
 StorageMigrationChecks.Run();
@@ -13,7 +13,7 @@ Check(!Data.WebUrl("file:///C:/Windows/notepad.exe") && !Data.WebUrl("javascript
 Check(Anime.Parse(JsonNode.Parse("""{"objectID":"a","name":"Title","poster":{"medium":"https://example.com/p.jpg"}}""")!.AsObject()).Id == "a", "Algolia model mapping failed");
 
 var handler = new FixtureHandler();
-using (var api = new WitcherApi(handler))
+using (var api = new CatalogApi(handler))
 {
     await api.Initialize();
     var page = await api.Search("hunter & dragon", 2);
@@ -32,7 +32,7 @@ using (var api = new WitcherApi(handler))
 }
 Console.WriteLine("PASS: nested Firestore values, URL safety, models, search escaping/pagination, details, episode summary/fallback pagination, server summary, resolution, access-denial handling.");
 await ResolverChecks.Run();
-var historyScratch = Path.Combine(Path.GetTempPath(), "witcher-history-check-" + Guid.NewGuid().ToString("N"));
+var historyScratch = Path.Combine(Path.GetTempPath(), "yoru-history-check-" + Guid.NewGuid().ToString("N"));
 Directory.CreateDirectory(historyScratch);
 try {
     await File.WriteAllTextAsync(Path.Combine(historyScratch, "history.json"), """[{"AnimeId":"old-title","AnimeName":"Existing title","Poster":"","EpisodeId":"001","EpisodeName":"Episode 1","Seconds":75,"Updated":"2026-10-24T12:00:00Z"}]""");
@@ -62,7 +62,7 @@ try {
 } finally { foreach (var file in Directory.GetFiles(historyScratch)) File.Delete(file); Directory.Delete(historyScratch); }
 
 // V6: shared API work, cancellation isolation, retry/expiry/eviction and command ordering.
-var cacheHandler=new FixtureHandler(); using(var client=new WitcherApi(cacheHandler)) {
+var cacheHandler=new FixtureHandler(); using(var client=new CatalogApi(cacheHandler)) {
     var readCache=new ApiDataCache(client); await readCache.Initialize(); await readCache.Search("cached",0); var count=cacheHandler.Requests;
     await readCache.Search("cached",0); Check(cacheHandler.Requests==count,"Repeated catalog page caused an API request");
     await readCache.Details("anime-1"); await readCache.Episodes("anime-1"); count=cacheHandler.Requests; await readCache.Details("anime-1"); await readCache.Episodes("anime-1");
@@ -88,7 +88,7 @@ await Task.WhenAll(Enumerable.Range(0,50).Select(i=>queue.Seek(i,value=>seeks.Ad
 Check(seeks.Count==1 && seeks[0]==49,"Seek storm was not coalesced to the newest target");
 var order=new List<int>(); await queue.Enqueue(()=>order.Add(1)); await queue.Enqueue(()=>order.Add(2));
 Check(order.SequenceEqual(new[]{1,2}),"Native commands were reordered"); await queue.Complete(); await queue.Enqueue(()=>order.Add(3)); Check(order.Count==2,"Native command ran after close");
-var guardScratch=Path.Combine(Path.GetTempPath(),"witcher-decoder-check-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(guardScratch);
+var guardScratch=Path.Combine(Path.GetTempPath(),"yoru-decoder-check-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(guardScratch);
 try {
     using(var guard=new DecoderGuard(guardScratch)) { Check(!guard.SoftwareRequired,"Clean decoder session forced software"); }
     Check(!Directory.GetFiles(guardScratch,"player-*.json").Any(),"Normal close left a crash marker");
@@ -99,7 +99,7 @@ Console.WriteLine("PASS: V6 bounded API caching/deduplication, cancellation isol
 
 if (args.Contains("--node-live"))
 {
-    using var live = new WitcherApi(new NodeHttpHandler());
+    using var live = new CatalogApi(new NodeHttpHandler());
     await live.Initialize();
     var episodes = await live.Episodes("Jujutsu Kaisen");
     var servers = await live.Servers("Jujutsu Kaisen", episodes[0].Id);
@@ -120,7 +120,7 @@ if (args.Contains("--node-live"))
 
 if (args.Contains("--live"))
 {
-    using var live = new WitcherApi();
+    using var live = new CatalogApi();
     await live.Initialize();
     var page = await live.Search("", 0);
     Check(page.Items.Count > 0, "Live catalog was empty");

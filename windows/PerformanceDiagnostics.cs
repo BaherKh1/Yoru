@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // The same harness runs against the unoptimized V5 copy and V6. Hidden WPF
 // composition cadence is a scheduling proxy, not a claim about monitor FPS.
@@ -21,7 +21,7 @@ internal static class PerformanceDiagnostics
     {
         directory = Path.GetFullPath(directory);
         var output = Path.Combine(directory, "performance.json");
-        var scratch = Path.Combine(Path.GetTempPath(), "witcher-perf-" + Guid.NewGuid().ToString("N"));
+        var scratch = Path.Combine(Path.GetTempPath(), "yoru-perf-" + Guid.NewGuid().ToString("N"));
         var measures = new Dictionary<string, object>(); string? error = null;
         MainWindow? window = null;
         using var source = new HwndSource(new HwndSourceParameters("Hidden WPF performance profiling") { Width = 1366, Height = 768, WindowStyle = unchecked((int)0x80000000) });
@@ -73,7 +73,7 @@ internal static class PerformanceDiagnostics
                 measures["realizedImages"] = Descendants<Image>(catalog).Count();
                 measures["visibleDecodedPixelBytes"] = Descendants<Image>(catalog).Select(x => x.Source).OfType<BitmapSource>().Distinct().Sum(x => (long)x.PixelWidth*x.PixelHeight*4);
                 measures["imageState"] = Descendants<Image>(catalog).Take(3).Select(image=>new { source=image.GetType().GetProperty("ArtworkSource")?.GetValue(image)?.ToString(), width=image.ActualWidth,height=image.ActualHeight,slot=LayoutInformation.GetLayoutSlot(image).ToString(),loaded=image.IsLoaded,visible=image.IsVisible,bitmap=image.Source?.GetType().Name }).ToArray();
-                var cacheType=typeof(MainWindow).Assembly.GetType("AnimeWitcherDesktop.ArtworkCache"); var cache=cacheType?.GetProperty("Shared")?.GetValue(null); measures["artworkCache"] = cacheType?.GetMethod("Snapshot")?.Invoke(cache,null)??new {};
+                var cacheType=typeof(MainWindow).Assembly.GetType("Yoru.ArtworkCache"); var cache=cacheType?.GetProperty("Shared")?.GetValue(null); measures["artworkCache"] = cacheType?.GetMethod("Snapshot")?.Invoke(cache,null)??new {};
 
             }
             finally { CompositionTarget.Rendering -= rendering; }

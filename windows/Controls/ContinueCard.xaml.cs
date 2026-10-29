@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 public partial class ContinueCard : UserControl
 {
     public static readonly RoutedEvent ResumeRequestedEvent = EventManager.RegisterRoutedEvent(nameof(ResumeRequested), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ContinueCard));

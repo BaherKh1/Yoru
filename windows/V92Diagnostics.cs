@@ -8,7 +8,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 internal static class V92Diagnostics
 {
     internal static async Task<int> Run(string directory)

@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Threading;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 internal static class V93Diagnostics
 {
     [StructLayout(LayoutKind.Sequential)] private struct Rect {public int Left,Top,Right,Bottom;public override string ToString()=>$"{Left},{Top} - {Right},{Bottom}";}

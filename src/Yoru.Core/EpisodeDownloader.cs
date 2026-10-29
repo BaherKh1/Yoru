@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json;
-using AnimeWitcherDesktop;
+using Yoru;
 
 namespace Yoru.Core;
 public sealed record DownloadProgress(long Bytes,long? Total,int? Percent);

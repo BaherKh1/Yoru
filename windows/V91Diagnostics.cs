@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shell;
 using System.Windows.Threading;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 internal static class V91Diagnostics
 {
     [DllImport("dwmapi.dll")] private static extern int DwmSetWindowAttribute(IntPtr hwnd,int attribute,ref int value,int size);

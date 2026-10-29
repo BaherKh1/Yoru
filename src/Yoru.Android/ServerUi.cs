@@ -2,7 +2,7 @@ using Android.App;
 using Android.Net;
 using Android.Views;
 using Android.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 namespace Yoru.AndroidApp;
 

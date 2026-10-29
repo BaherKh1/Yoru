@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public static class L
 {
@@ -10,7 +10,7 @@ public static class L
     public static IReadOnlyDictionary<string, string[]> Entries => values;
     private static Dictionary<string, string[]> Load()
     {
-        using var stream = typeof(L).Assembly.GetManifestResourceStream("AnimeWitcherDesktop.Localization.strings.json") ?? throw new InvalidOperationException("Translation resource missing");
+        using var stream = typeof(L).Assembly.GetManifestResourceStream("Yoru.Localization.strings.json") ?? throw new InvalidOperationException("Translation resource missing");
         return JsonSerializer.Deserialize<Dictionary<string, string[]>>(stream)!;
     }
     public static string KeyFor(string text) => values.ContainsKey(text) ? text : values.FirstOrDefault(x => x.Value.Contains(text)).Key ?? text;

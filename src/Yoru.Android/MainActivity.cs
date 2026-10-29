@@ -9,7 +9,7 @@ using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 using DownloadStatus=Yoru.Core.DownloadStatus;
 namespace Yoru.AndroidApp;

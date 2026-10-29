@@ -7,7 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Threading;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class V9Diagnostics
 {

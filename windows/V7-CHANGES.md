@@ -1,4 +1,4 @@
-# Anime Witcher V7 (0.7.1)
+# Yoru V7 (0.7.1)
 
 Implemented:
 
@@ -17,7 +17,7 @@ Modified source:
 - Controls/RoundedImage.cs: progressive fallback, rebind/cancellation protection, bounded visible retries.
 - Controls/AnimeCard.xaml / Controls/ContinueCard.xaml: fallback bindings; card designs unchanged.
 - ArtworkCache.cs: payload validation, corruption recovery and dimension bounds.
-- Localization/strings.json, AnimeWitcherDesktop.csproj: new translated placeholder and V7 version.
+- Localization/strings.json, YORU.Desktop.csproj: new translated placeholder and V7 version.
 - App.xaml.cs / V7Diagnostics.cs: hidden regression entry point and checks.
 - README.md, VALIDATION.md, PERFORMANCE.md, build.ps1: release documentation and packaging.
 

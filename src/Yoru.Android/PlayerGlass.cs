@@ -5,7 +5,7 @@ using Android.Graphics.Drawables;
 using Android.Views;
 using Android.Widget;
 using Orientation = Android.Widget.Orientation;
-using AnimeWitcherDesktop;
+using Yoru;
 
 namespace Yoru.AndroidApp;
 

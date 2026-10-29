@@ -2,7 +2,7 @@ using Android.Content.Res;
 using Android.Graphics;
 using Android.Views;
 using Android.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 using Orientation=Android.Widget.Orientation;
 namespace Yoru.AndroidApp;

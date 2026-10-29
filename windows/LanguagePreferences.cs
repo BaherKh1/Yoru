@@ -1,6 +1,6 @@
 using System.IO;
 using System.Text.Json;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public sealed class LanguagePreferences
 {
     public string FilePath { get; }

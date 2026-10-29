@@ -12,7 +12,7 @@ const catalogResponse=await fetch(endpoint,{method:'POST',headers,body:JSON.stri
 if(!catalogResponse.ok)throw Error(`Catalog HTTP ${catalogResponse.status}`);
 const catalog=await catalogResponse.json();
 await fs.mkdir('evidence/design-assets',{recursive:true});
-await fs.writeFile('evidence/design-catalog.json',JSON.stringify({capturedAt:new Date().toISOString(),source:'Anime Witcher Algolia series, empty query, page 0',total:catalog.nbHits,hits:catalog.hits},null,2));
+await fs.writeFile('evidence/design-catalog.json',JSON.stringify({capturedAt:new Date().toISOString(),source:'Yoru Algolia series, empty query, page 0',total:catalog.nbHits,hits:catalog.hits},null,2));
 console.log(JSON.stringify({records:catalog.hits.length,total:catalog.nbHits,firstKeys:Object.keys(catalog.hits[0]),details:catalog.hits[0]?.details,coverCount:catalog.hits.filter(x=>x.cover_uri).length}));
 try {
  const id=encodeURIComponent(catalog.hits[0].objectID);

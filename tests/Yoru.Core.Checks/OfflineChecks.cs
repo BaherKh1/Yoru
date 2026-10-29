@@ -1,4 +1,4 @@
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 
 internal static class OfflineChecks

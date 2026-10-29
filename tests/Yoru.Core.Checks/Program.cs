@@ -1,13 +1,13 @@
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 var checks=new List<string>();
 void Check(bool value,string message){if(!value)throw new Exception(message);}
-Anime MakeAnime(string id)=>AnimeWitcherDesktop.Anime.Parse(new JsonObject{["objectID"]=id,["name"]="Title "+id,["poster_uri"]="https://example.invalid/poster.jpg",["details"]=new JsonObject{["year"]="2026"},["tags"]=new JsonArray("Action")});
+Anime MakeAnime(string id)=>Yoru.Anime.Parse(new JsonObject{["objectID"]=id,["name"]="Title "+id,["poster_uri"]="https://example.invalid/poster.jpg",["details"]=new JsonObject{["year"]="2026"},["tags"]=new JsonArray("Action")});
 var root=Path.Combine(Path.GetTempPath(),"yoru-android-check-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(root);AppStorage.Configure(root);
-using(var api=new WitcherApi(new FixtureHandler())) {
+using(var api=new CatalogApi(new FixtureHandler())) {
  await api.Initialize();var page=await api.Search("\u062c\u0648\u062c\u0648\u062a\u0633\u0648 & dragon",2);Check(page.Items.Count==1 && page.Page==2 && page.Pages==3,"Catalog/Arabic search compatibility failed");
  Check((await api.Details("anime-1")).Story=="Synopsis","Details compatibility failed");Check((await api.Episodes("anime-1")).Count==1 && (await api.Episodes("fallback")).Count==2,"Episode summary/fallback failed");
  Check((await api.Servers("anime-1","001")).Count==2,"Servers mapping failed");
@@ -90,7 +90,7 @@ await ServerValidationChecks.Run();checks.Add("Server preflight: playable/downlo
 OfflineChecks.Run();checks.Add("Offline mode: launch/downloads redirect, online-only page and tab gating, local-page preservation, debounced loss, immediate reconnection, single-shot notices and Arabic copy");
 DownloadGroupChecks.Run();checks.Add("Responsive Explore phone/foldable/tablet grids and grouped download counts, sizes, active percentages, incomplete states and stable episode order");
 if(args.Contains("--live")){
- using var api=new WitcherApi(new NodeHttpHandler());await api.Initialize();var page=await api.Search("",0);Check(page.Items.Count>0,"Live catalog is empty");var query=await api.Search("Jujutsu Kaisen",0);var candidate=query.Items.FirstOrDefault()??page.Items[0];var details=await api.Details(candidate.Id);var episodes=await api.Episodes(candidate.Id);Check(episodes.Count>0,"Live episodes missing");var servers=await api.Servers(candidate.Id,episodes[0].Id);Check(servers.Count>0,"Live server list missing");
+ using var api=new CatalogApi(new NodeHttpHandler());await api.Initialize();var page=await api.Search("",0);Check(page.Items.Count>0,"Live catalog is empty");var query=await api.Search("Jujutsu Kaisen",0);var candidate=query.Items.FirstOrDefault()??page.Items[0];var details=await api.Details(candidate.Id);var episodes=await api.Episodes(candidate.Id);Check(episodes.Count>0,"Live episodes missing");var servers=await api.Servers(candidate.Id,episodes[0].Id);Check(servers.Count>0,"Live server list missing");
  var resolvedCount=0;foreach(var server in servers.Where(item=>item.Name is "MF" or "PD").GroupBy(item=>item.Name).Select(group=>group.First()).Take(2)){try{var media=await api.Resolve(server);Check(media.Direct && !media.Browser,"Live resolver returned a browser page");resolvedCount++;Console.WriteLine("LIVE: "+server.Name+" resolved to validated media; MIME="+media.MimeType);}catch(PlaybackException){Console.WriteLine("LIVE: "+server.Name+" unavailable; handled by resolver");}}
  Check(resolvedCount>0,"No tested live server resolved to media");
  Console.WriteLine($"LIVE: {page.Items.Count} catalog rows, {page.Total} titles, {episodes.Count} episodes, {servers.Count} servers; no credentials/stream URLs logged");checks.Add("Live backend catalog, search, details, episodes and server list");

@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using LibVLCSharp.Shared;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class V6Diagnostics
 {
     internal static async Task<int> Run(string directory)
     {
         var checks=new List<string>(); string? error=null; MainWindow? window=null;
-        var scratch=Path.Combine(Path.GetTempPath(),"witcher-v6-check-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(scratch);
+        var scratch=Path.Combine(Path.GetTempPath(),"yoru-v6-check-"+Guid.NewGuid().ToString("N")); Directory.CreateDirectory(scratch);
         try {
             void Check(bool value,string message) { if(!value) throw new Exception(message); }
             var raw=Enumerable.Repeat((byte)210,1024*512*4).ToArray(); for(int i=3;i<raw.Length;i+=4) raw[i]=255;

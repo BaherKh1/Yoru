@@ -1,5 +1,5 @@
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 
 internal static class EpisodeLibraryChecks
@@ -10,7 +10,7 @@ internal static class EpisodeLibraryChecks
     {
         // Exercise the real shared cache: opening/reopening a view must never
         // mutate its List<Episode>, the original regression's ownership failure.
-        using(var api=new WitcherApi(new FixtureHandler())){
+        using(var api=new CatalogApi(new FixtureHandler())){
             var cache=new ApiDataCache(api);await cache.Initialize();
             var library=new EpisodeLibrary((id,ct)=>cache.Episodes(id,ct));
             var apiList=await cache.Episodes("anime-1");var expected=apiList.Count;

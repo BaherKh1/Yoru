@@ -1,6 +1,6 @@
 using System.IO;
 using System.Text.Json;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public record WatchEntry(string AnimeId, string AnimeName, string Poster, string EpisodeId, string EpisodeName, double Seconds, DateTime Updated, double Duration = 0, string Cover = "");
 public sealed class HistoryStore
 {
@@ -19,7 +19,7 @@ public sealed class HistoryStore
     private void Delete(string id)
     {
         Directory.CreateDirectory(DirectoryPath);
-        using var mutex = new Mutex(false, "Local\\AnimeWitcherHistoryV5"); mutex.WaitOne();
+        using var mutex = new Mutex(false, "Local\\YORUHistoryV5"); mutex.WaitOne();
         try { Reload(); var markers = Markers(); markers[id] = DateTime.UtcNow; Write(path + ".deleted", markers); Entries.RemoveAll(x => id == "*" || x.AnimeId == id); Write(path, Entries); }
         finally { mutex.ReleaseMutex(); }
     }
@@ -29,7 +29,7 @@ public sealed class HistoryStore
     {
         try {
             Directory.CreateDirectory(DirectoryPath);
-            using var mutex = new Mutex(false, "Local\\AnimeWitcherHistoryV5"); mutex.WaitOne();
+            using var mutex = new Mutex(false, "Local\\YORUHistoryV5"); mutex.WaitOne();
             try {
                 Reload(); var markers = Markers(); var started = sessionStarted ?? DateTime.UtcNow;
                 if (markers.TryGetValue("*", out var all) && started <= all || markers.TryGetValue(anime.Id, out var removed) && started <= removed) return;

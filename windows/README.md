@@ -10,7 +10,7 @@ Home reads its last successful catalog snapshot asynchronously while creating th
 
 The dark/purple theme, Yoru2 artwork, English/Arabic and RTL/LTR, search/filter/sort, infinite scrolling, bookmarks, Continue Watching management, fixed details header/scrollable episode list, streaming and player controls are retained.
 
-Data lives in %LOCALAPPDATA%/YORU. Existing settings, favorites, history, deletion markers and playback progress remain accessible. The existing safe legacy migration from AnimeWitcherDesktop is unchanged. No data reset is needed.
+Data lives in %LOCALAPPDATA%/YORU. Existing settings, favorites, history, deletion markers and playback progress remain accessible. The existing safe legacy migration from Yoru is unchanged. No data reset is needed.
 
 To create or update a desktop shortcut after extracting to a permanent folder, run Create-Desktop-Shortcut.ps1. It points to YORU.exe beside the script. Existing shortcuts were not changed by this update.
 

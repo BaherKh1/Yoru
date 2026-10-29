@@ -1,5 +1,5 @@
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 
 internal static class ViewportBookmarkChecks
@@ -27,7 +27,7 @@ internal static class ViewportBookmarkChecks
         // A saved viewport resolves against the same multi-page session; returning
         // needs no Search/Load invocation and retains ordering and NextPage.
         var fetches=0;
-        Anime Anime(int id)=>AnimeWitcherDesktop.Anime.Parse(new JsonObject{["objectID"]=id.ToString(),["name"]="Anime "+id});
+        Anime Anime(int id)=>Yoru.Anime.Parse(new JsonObject{["objectID"]=id.ToString(),["name"]="Anime "+id});
         var catalog=new CatalogSession("query",(_,page,_)=>{fetches++;return Task.FromResult(new SearchPage(Enumerable.Range(page*30,30).Select(Anime).ToList(),page,4,120));});
         await catalog.Load();await catalog.Load();await catalog.Load();
         var retained=catalog;var before=fetches;var ids=retained.Items.Select(a=>"anime:"+a.Id).ToArray();

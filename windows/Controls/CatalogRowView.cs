@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 
 // Recycling ListBox rows should also recycle their six/eight poster controls.
 // A nested ItemsControl would destroy/recreate every poster on each row rebind.

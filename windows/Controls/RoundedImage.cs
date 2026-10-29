@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Threading;
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 public sealed class RoundedImage : Image
 {
     internal ArtworkCache Cache { get; set; } = ArtworkCache.Shared;

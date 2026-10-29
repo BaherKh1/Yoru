@@ -11,7 +11,7 @@ using AndroidX.Media3.DataSource;
 using AndroidX.Media3.ExoPlayer;
 using AndroidX.Media3.ExoPlayer.Source;
 using AndroidX.Media3.UI;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 using MediaFailure=AndroidX.Media3.Common.PlaybackException;
 namespace Yoru.AndroidApp;

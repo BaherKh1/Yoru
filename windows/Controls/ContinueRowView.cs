@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace AnimeWitcherDesktop.Controls;
+namespace Yoru.Controls;
 
 public sealed class ContinueRowView : ResponsiveCardPanel
 {

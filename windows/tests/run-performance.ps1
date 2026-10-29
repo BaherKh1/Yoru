@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $target = Split-Path -Parent $PSScriptRoot
-$baseline = Join-Path (Split-Path -Parent $target) 'baseline\AnimeWitcherDesktop'
+$baseline = Join-Path (Split-Path -Parent $target) 'baseline\Yoru'
 $evidence = Join-Path $target 'evidence'
 # Run serially: a concurrent build/test would contaminate CPU and frame timings.
 foreach ($variant in @(@{ Name='v5'; Root=$baseline }, @{ Name='v6'; Root=$target })) {
@@ -8,7 +8,7 @@ foreach ($variant in @(@{ Name='v5'; Root=$baseline }, @{ Name='v6'; Root=$targe
     try {
         dotnet build -c Release --no-restore -p:NuGetAudit=false -p:UseSharedCompilation=false
         if ($LASTEXITCODE -ne 0) { throw 'Profiler build failed' }
-        $exe = Join-Path $PWD 'bin\Release\net8.0-windows\AnimeWitcherDesktop.exe'
+        $exe = Join-Path $PWD 'bin\Release\net8.0-windows\Yoru.exe'
         foreach ($run in 1..3) {
             $process = Start-Process -FilePath $exe -ArgumentList '--performance-profile','evidence' -WindowStyle Hidden -PassThru -Wait
             if ($process.ExitCode -ne 0) { throw 'UI profile failed' }

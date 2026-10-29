@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 
 public sealed record QualityServers(string Quality,IReadOnlyList<VideoServer> Servers);

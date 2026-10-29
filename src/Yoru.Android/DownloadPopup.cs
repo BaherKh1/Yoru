@@ -4,7 +4,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.Views;
 using Android.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 using DownloadStatus=Yoru.Core.DownloadStatus;
 using OperationCanceledException=System.OperationCanceledException;

@@ -4,7 +4,7 @@ using Android.Graphics.Drawables;
 using Android.Views;
 using Android.Views.Accessibility;
 using Android.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 
 namespace Yoru.AndroidApp;

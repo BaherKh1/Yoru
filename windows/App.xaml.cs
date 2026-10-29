@@ -1,6 +1,6 @@
 using System.Windows;
 using System.Windows.Threading;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public partial class App : Application
 {
     protected override async void OnStartup(StartupEventArgs e)

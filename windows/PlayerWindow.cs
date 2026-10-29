@@ -8,7 +8,7 @@ using System.Windows.Interop;
 using LibVLCSharp.Shared;
 using LibVLCSharp.WPF;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public sealed class PlayerWindow : Window
 {
     public event Action<double>? ProgressSaved;

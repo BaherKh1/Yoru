@@ -1,4 +1,4 @@
-using AnimeWitcherDesktop;
+using Yoru;
 namespace Yoru.Core;
 
 public sealed record AnimeDownloads(Anime Anime,IReadOnlyList<EpisodeDownload> Episodes,int Completed,int Active,long Bytes,int? Percent,int Failed,int Cancelled,int Interrupted);

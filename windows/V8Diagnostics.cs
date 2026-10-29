@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 internal static class V8Diagnostics
 {
@@ -37,10 +37,10 @@ internal static class V8Diagnostics
             foreach(var (x,y) in new[]{(0,0),(converted.PixelWidth-1,0),(0,converted.PixelHeight-1),(converted.PixelWidth-1,converted.PixelHeight-1)}) Check(Alpha(x,y)==0,"Logo outer corner background is not transparent");
             Check(Alpha(converted.PixelWidth/2,converted.PixelHeight/2)>240,"Squircle interior was removed");
             checks.Add("Provided squircle logo has actual transparent outer corners and an intact opaque interior");
-            foreach(var pair in L.Entries) foreach(var value in pair.Value) Check(!value.Contains("witcher",StringComparison.OrdinalIgnoreCase) && !value.Contains("ويتشر"),"Old visible branding in translation "+pair.Key);
+            foreach(var pair in L.Entries) foreach(var value in pair.Value) Check(!value.Contains("old-brand",StringComparison.OrdinalIgnoreCase) && !value.Contains("ويتشر"),"Old visible branding in translation "+pair.Key);
             checks.Add("All English/Arabic translation values are free of old brand text");
             var records=JsonNode.Parse(File.ReadAllText(Path.Combine(directory,"design-catalog.json")))!["hits"]!.AsArray().OfType<JsonObject>().Select(node=>Anime.Parse(node)).ToList();
-            var legacy=Path.Combine(scratch,"AnimeWitcherDesktop"); Directory.CreateDirectory(legacy);
+            var legacy=Path.Combine(scratch,"Yoru"); Directory.CreateDirectory(legacy);
             var anime=records[0]; var episode=Episode.Parse(new JsonObject { ["doc_id"]="001",["name"]="Episode 1" });
             new LanguagePreferences(legacy).Save("ar"); new HistoryStore(legacy).Save(anime,episode,123.5,1440);
             File.WriteAllText(Path.Combine(legacy,"my-list.json"),JsonSerializer.Serialize(new[]{anime}));

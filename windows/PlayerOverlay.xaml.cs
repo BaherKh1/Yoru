@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public partial class PlayerOverlay : UserControl, IDisposable
 {

@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text.Json;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Keep legacy identifiers inside data/API models; only the storage root changes.
 public static class AppStorage
@@ -12,7 +12,7 @@ public static class AppStorage
 
     internal static string Resolve(string localRoot)
     {
-        var legacy = Path.Combine(localRoot, "AnimeWitcherDesktop");
+        var legacy = Path.Combine(localRoot, "Yoru");
         var target = Path.Combine(localRoot, "YORU");
         try { Migrate(legacy, target); return target; }
         catch (Exception error) when (error is IOException or UnauthorizedAccessException or JsonException) {
@@ -41,7 +41,7 @@ public static class AppStorage
             // Share the old history lock while taking the snapshot, including
             // deletion tombstones. Never delete/move the legacy data or overwrite
             // files the user already has in YORU.
-            using var history = new Mutex(false, "Local\\AnimeWitcherHistoryV5");
+            using var history = new Mutex(false, "Local\\YORUHistoryV5");
             try { history.WaitOne(); } catch (AbandonedMutexException) { }
             try {
                 if (Directory.Exists(legacy)) {

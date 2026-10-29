@@ -6,7 +6,7 @@ $source = [System.Windows.Media.Imaging.BitmapImage]::new()
 $source.BeginInit(); $source.CacheOption = [System.Windows.Media.Imaging.BitmapCacheOption]::OnLoad
 $source.UriSource = [Uri](Join-Path $PSScriptRoot 'yoru-original.png')
 $source.EndInit(); $source.Freeze()
-$mark = [AnimeWitcherDesktop.BrandArtwork]::CreateSmall($source)
+$mark = [Yoru.BrandArtwork]::CreateSmall($source)
 $canvas = $mark.Drawing
 function Render-Icon([int]$size) {
     $visual = [System.Windows.Media.DrawingVisual]::new()

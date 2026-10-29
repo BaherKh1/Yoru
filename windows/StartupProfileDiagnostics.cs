@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Shared unchanged with the isolated V8.1 baseline. Only this test harness
 // models two 250ms network stages; production startup contains no delay.

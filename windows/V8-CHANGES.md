@@ -16,7 +16,7 @@ Compatibility:
 Modified files:
 
 - MainWindow.xaml, PlayerOverlay.xaml, PlayerWindow.cs: brand/logo/About UI and native player title only; existing poster/card/player-control design remains.
-- AppIcons.cs, AppIdentity.cs, App.xaml.cs, app.manifest, AnimeWitcherDesktop.csproj: icon resources, shell identity, build metadata and YORU executable output.
+- AppIcons.cs, AppIdentity.cs, App.xaml.cs, app.manifest, YORU.Desktop.csproj: icon resources, shell identity, build metadata and YORU executable output.
 - Localization/strings.json: English/Arabic brand values, About copy and V8 version.
 - Assets/yoru-logo.png, yoru.ico, yoru-icon.png, yoru-*.png, build-icon.ps1: transparent cutout and standard Windows sizes.
 - AppStorage.cs: centralized safe migration. HistoryStore.cs, LanguagePreferences.cs, Presentation.cs, ArtworkCache.cs, DecoderGuard.cs and PlaybackHealth.cs only change their default storage root.

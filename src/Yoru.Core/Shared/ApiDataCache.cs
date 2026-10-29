@@ -1,7 +1,7 @@
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // UI data only. Server lists and resolved/signed playback URLs are never cached.
-public sealed class ApiDataCache(WitcherApi api)
+public sealed class ApiDataCache(CatalogApi api)
 {
     private readonly AsyncResultCache<string,SearchPage> searches=new(32,TimeSpan.FromMinutes(2));
     private readonly AsyncResultCache<string,Anime> details=new(64,TimeSpan.FromMinutes(5));

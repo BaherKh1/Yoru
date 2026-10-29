@@ -4,7 +4,7 @@ YORU V8 note: this is a branding release with a safe data-root migration. The me
 
 V7 note: the results below are the historical V6 performance comparison, not a new V7 benchmark. V7 retains those optimizations and the 0.6.1 player controls. Its changes are episode viewport sizing/pixel scrolling, scrollbar placement, compact episode search and resilient artwork loading. API/backend/player code is unchanged. See V7-CHANGES.md and VALIDATION.md.
 
-# Anime Witcher V6 performance report
+# Yoru V6 performance report
 
 V6 keeps the .NET 8 WPF/LibVLCSharp architecture, V5 theme, poster dimensions, hover animations, language support, APIs, resolver, history, and player icon. V5 is the earlier release generation; V6 source was developed outside this repository.
 

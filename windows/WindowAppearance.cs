@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 internal static class WindowAppearance
 {
     [DllImport("dwmapi.dll")] private static extern int DwmSetWindowAttribute(IntPtr handle, int attribute, ref int value, int size);

@@ -1,7 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.Json.Nodes;
-using AnimeWitcherDesktop;
+using Yoru;
 sealed class FixtureHandler : HttpMessageHandler
 {
     public string LastQuery { get; private set; } = "";

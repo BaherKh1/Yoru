@@ -4,42 +4,21 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json.Nodes;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 // Client-side API behavior reconstructed from the APK; no admin APIs or writes.
-public sealed class WitcherApi : IDisposable
+public sealed class CatalogApi : IDisposable
 {
     public const string Project = "animewitcher-1c66d";
     public const string Documents = "https://firestore.googleapis.com/v1/projects/" + Project + "/databases/(default)/documents";
     private readonly HttpClient http;
-    private readonly HttpClient media;
     private JsonObject? constants;
     private string appId = "", searchKey = "", configAppId = "", configKey = "";
-    public WitcherApi(HttpMessageHandler? handler = null)
+    public CatalogApi(HttpMessageHandler? handler = null)
     {
-        if (handler is null)
-        {
-            http = new HttpClient();
-            // Media resolution/probing uses the managed transport consistently on
-            // desktop and Android: redirects, decompression and Range/Referer behave
-            // the same way instead of depending on the platform HTTP handler.
-            media = new HttpClient(new SocketsHttpHandler {
-                AllowAutoRedirect = true,
-                AutomaticDecompression = DecompressionMethods.All,
-                ConnectTimeout = TimeSpan.FromSeconds(15),
-                PooledConnectionLifetime = TimeSpan.FromMinutes(5)
-            });
-        }
-        else { http = new HttpClient(handler); media = http; }
-        http.Timeout = TimeSpan.FromSeconds(30);
-        media.Timeout = TimeSpan.FromSeconds(30);
-        http.DefaultRequestHeaders.UserAgent.ParseAdd("AnimeWitcherDesktop/0.1");
-        http.DefaultRequestHeaders.Accept.ParseAdd("*/*");
-        if (!ReferenceEquals(media, http))
-        {
-            media.DefaultRequestHeaders.UserAgent.ParseAdd("AnimeWitcherDesktop/0.1");
-            media.DefaultRequestHeaders.Accept.ParseAdd("*/*");
-        }
+        http = handler is null ? new HttpClient() : new HttpClient(handler);
+        http.Timeout = TimeSpan.FromSeconds(25);
+        http.DefaultRequestHeaders.UserAgent.ParseAdd("YORU/0.1");
     }
     public async Task Initialize(CancellationToken ct = default)
     {
@@ -93,7 +72,7 @@ public sealed class WitcherApi : IDisposable
         {
             var summary = await TryDocument(root + "/servers2/all_servers", ct);
             if (summary?["servers"] is JsonArray rows)
-            { var found = rows.OfType<JsonObject>().Select(VideoServer.Parse).Where(x => Data.WebUrl(x.Link)).ToList(); Console.WriteLine($"[YORU] Servers summary anime={anime} episode={episode} count={found.Count}"); return found; }
+                return rows.OfType<JsonObject>().Select(VideoServer.Parse).Where(x => Data.WebUrl(x.Link)).ToList();
         }
         // Match loadAllServers2(): visible == true AND name != "", limit 20.
         var body = new JsonObject { ["structuredQuery"] = new JsonObject {
@@ -104,13 +83,11 @@ public sealed class WitcherApi : IDisposable
                     Filter("name", "NOT_EQUAL", new JsonObject { ["stringValue"] = "" })) } },
             ["limit"] = 20 } };
         var json = await Send(new(HttpMethod.Post, Documents + "/" + root + ":runQuery") { Content = Content(body) }, ct);
-        var result = (json as JsonArray ?? new()).Select(x => x?["document"]).OfType<JsonObject>()
+        return (json as JsonArray ?? new()).Select(x => x?["document"]).OfType<JsonObject>()
             .Select(x => VideoServer.Parse(Data.Fields(x["fields"]))).Where(x => Data.WebUrl(x.Link)).ToList();
-        Console.WriteLine($"[YORU] Servers anime={anime} episode={episode} count={result.Count}");
-        return result;
     }
     public Task<VideoServer> Resolve(VideoServer server, CancellationToken ct = default)
-        => new PlaybackResolver(media, ServerConfiguration).Resolve(server, ct);
+        => new PlaybackResolver(http, ServerConfiguration).Resolve(server, ct);
     private async Task<JsonObject?> ServerConfiguration(string name, CancellationToken ct)
     {
         if (configAppId.Length > 0 && configKey.Length > 0)
@@ -162,5 +139,5 @@ public sealed class WitcherApi : IDisposable
     private static StringContent Content(JsonNode body) => new(body.ToJsonString(), Encoding.UTF8, "application/json");
     private static string Segment(string value) => Uri.EscapeDataString(Data.Id(value));
     private static JsonObject Filter(string field, string op, JsonObject value) => new() { ["fieldFilter"] = new JsonObject { ["field"] = new JsonObject { ["fieldPath"] = field }, ["op"] = op, ["value"] = value } };
-    public void Dispose() { media.Dispose(); if(!ReferenceEquals(media,http)) http.Dispose(); }
+    public void Dispose() => http.Dispose();
 }

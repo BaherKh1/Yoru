@@ -6,7 +6,7 @@ using Android.Views;
 using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
-using AnimeWitcherDesktop;
+using Yoru;
 using Yoru.Core;
 
 namespace Yoru.AndroidApp;

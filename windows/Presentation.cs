@@ -7,7 +7,7 @@ using System.Text.Json.Nodes;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 
 public static class Artwork
 {

@@ -1,4 +1,4 @@
-namespace AnimeWitcherDesktop;
+namespace Yoru;
 public static class AppStorage {
     private static string? directory;
     public static string DirectoryPath=>directory??throw new InvalidOperationException("Android storage has not been initialized");

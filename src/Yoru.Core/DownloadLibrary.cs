@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using AnimeWitcherDesktop;
+using Yoru;
 
 namespace Yoru.Core;
 public enum DownloadStatus {Queued,Downloading,Completed,Failed,Cancelled,Interrupted}
