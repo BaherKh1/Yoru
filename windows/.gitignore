@@ -1,0 +1,8 @@
+bin/
+obj/
+tests/bin/
+tests/obj/
+*.user
+.packages/
+dist/
+tests/*.local.json

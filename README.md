@@ -1,8 +1,13 @@
-# YORU for Android
+# YORU
 
-A native anime streaming and offline playback app for Android, built with **.NET for Android (net10.0-android)**, AndroidX RecyclerView, and **Media3/ExoPlayer**. It is a self-contained Android project — not a desktop wrapper — with its own storage, cache and preferences.
+YORU ships in two flavors in this repository:
 
-Package ID `app.yoru.android` · Android 8.0 (API 26)+ · arm64-v8a / x86-64.
+- **Android app** (`src/`): native .NET for Android (net10.0-android) client using AndroidX RecyclerView and **Media3/ExoPlayer** — self-contained, with its own storage, cache and preferences.
+- **Windows desktop client** (`windows/`): the original .NET 8 WPF application (`AnimeWitcherDesktop`) with the LibVLCSharp playback engine, sharing the same core network/resolver/localization sources with the Android client.
+
+Both target Android 8.0 (API 26) / Windows and share the same media pipeline approach, server handling, download model, and EN/AR localization feature set.
+
+Android package ID `app.yoru.android` · Android 8.0 (API 26)+ · arm64-v8a / x86-64.
 
 ## Features
 
@@ -21,6 +26,8 @@ Package ID `app.yoru.android` · Android 8.0 (API 26)+ · arm64-v8a / x86-64.
 
 ## Build
 
+### Android app
+
 ```powershell
 # One-time environment setup (downloads into ./toolchain, fully offline afterwards)
 ./setup.ps1
@@ -33,6 +40,17 @@ Package ID `app.yoru.android` · Android 8.0 (API 26)+ · arm64-v8a / x86-64.
 ```
 
 If your environment already provides `dotnet`, a JDK and an Android SDK, `build.ps1` accepts `-AndroidSdkDirectory` and falls back to `dotnet` on `PATH`; you can skip `setup.ps1` entirely. See [BUILD.md](BUILD.md) for every option, including keystore-based release signing.
+
+### Windows desktop client (WPF)
+
+`windows/` contains the .NET 8 WPF version (`AnimeWitcherDesktop`, `net8.0-windows`) — the shared core (`WitcherApi`, `PlaybackResolver`, caches, localization) used by both clients. Build it with the .NET SDK:
+
+```powershell
+dotnet restore windows/AnimeWitcherDesktop.csproj --configfile windows/NuGet.Config
+dotnet publish windows/AnimeWitcherDesktop.csproj -c Release -o windows/dist
+```
+
+The publish step bundles the native VLC playback engine from an installed VLC 3 x64 (`libvlc.dll`, `plugins`, …), or see `windows/build.ps1` which performs the full icon/publish/bundle sequence. Application data lives in `%LOCALAPPDATA%/YORU`; `windows/certs/` holds the public Mozilla CA bundle used for HTTPS validation (no private keys).
 
 Build outputs (`toolchain/`, `bin/`, `obj/`, `artifacts/`, `release/`) are git-ignored and never required in the repository.
 
@@ -48,12 +66,17 @@ The delivered APK is written to `artifacts/` by `build.ps1`. Release-ready APKs 
 ├── src/
 │   ├── Yoru.Android/      # Native Android app (activities, views, services, connectivity)
 │   └── Yoru.Core/         # Shared core: API, playback resolution, downloads, offline contracts
+├── windows/               # Windows WPF desktop client (AnimeWitcherDesktop, .NET 8)
+│   ├── Assets/            # Icons, branding artwork and icon build scripts
+│   ├── Controls/ Themes/  # WPF controls and styling
+│   ├── Localization/      # Embedded EN/AR strings
+│   └── tests/             # Windows-side API/decoder/performance checks
 ├── tests/
-│   └── Yoru.Core.Checks/  # Portable regression suite (run by ./test.ps1)
+│   └── Yoru.Core.Checks/  # Portable Android regression suite (run by ./test.ps1)
 ├── scripts/               # Checksum-verified SDK/workload/package bootstrap helpers
-├── build.ps1              # Release APK build
-├── setup.ps1              # One-time toolchain bootstrap
-└── test.ps1               # Core test runner
+├── build.ps1              # Android Release APK build
+├── setup.ps1              # One-time Android toolchain bootstrap
+└── test.ps1               # Android core test runner
 ```
 
 Design and validation history are documented in [ARCHITECTURE.md](ARCHITECTURE.md), [DEVICE-TESTS.md](DEVICE-TESTS.md), [VALIDATION.md](VALIDATION.md) and the dated update notes (`*-UPDATE.md`, `*-FIX.md`) at the repository root.

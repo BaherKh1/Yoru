@@ -1,0 +1,10 @@
+<UserControl x:Class="AnimeWitcherDesktop.Controls.PlayerTitleBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AnimeWitcherDesktop" xmlns:shell="clr-namespace:System.Windows.Shell;assembly=PresentationFramework" FlowDirection="LeftToRight">
+ <Grid Background="#090C14"><Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+  <Grid VerticalAlignment="Center" Margin="16,0,16,0" IsHitTestVisible="False"><Grid.ColumnDefinitions><ColumnDefinition Width="34"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions><Image Source="{x:Static local:AppIcons.Mark}" Width="22" Height="25" Stretch="Uniform" Margin="0,0,12,0"/><TextBlock Grid.Column="1" x:Name="Caption" Text="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}" Foreground="#E6E2F2" FontSize="13" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/></Grid>
+  <StackPanel Grid.Column="1" Orientation="Horizontal" shell:WindowChrome.IsHitTestVisibleInChrome="True">
+   <Button x:Name="MinimizeButton" Style="{StaticResource CaptionButton}" ToolTip="{local:Tr Minimize}" AutomationProperties.Name="{local:Tr Minimize}" Click="Minimize_Click"><Path Data="M0,6 L12,6" Stroke="White" StrokeThickness="1.4" Stretch="Uniform"/></Button>
+   <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButton}" ToolTip="{local:Tr Maximize}" AutomationProperties.Name="{local:Tr Maximize}" Click="Maximize_Click"><Path x:Name="MaximizeGlyph" Data="M1,1 L12,1 L12,12 L1,12 Z" Stroke="White" StrokeThickness="1.4" Stretch="Uniform"/></Button>
+   <Button x:Name="CloseButton" Style="{StaticResource CaptionButton}" ToolTip="{local:Tr Close}" AutomationProperties.Name="{local:Tr Close}" Click="Close_Click"><Path Data="M0,0 L12,12 M12,0 L0,12" Stroke="White" StrokeThickness="1.5" Stretch="Uniform"/></Button>
+  </StackPanel>
+ </Grid>
+</UserControl>

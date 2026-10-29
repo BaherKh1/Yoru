@@ -1,0 +1,2 @@
+﻿import fs from 'node:fs';import crypto from 'node:crypto';
+const a=JSON.parse(fs.readFileSync('evidence/v7-arcane.json')).hits.find(x=>x.name==='Arcane');const url='https://i.ytimg.com/vi/'+a.youtube_video_id+'/hqdefault.jpg';const r=await fetch(url);const b=Buffer.from(await r.arrayBuffer());console.log(JSON.stringify({url,status:r.status,bytes:b.length,mime:r.headers.get('content-type')}));if(r.ok)fs.writeFileSync('evidence/design-assets/'+crypto.createHash('sha256').update(url).digest('hex')+'.img',b);

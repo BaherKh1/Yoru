@@ -27,6 +27,11 @@ Thumbs.db
 .gradle/
 .nuget/
 
+# Windows project (WPF output, packages and feeds)
+.packages/
+dist/
+windows/tests/*.local.json
+
 # Signing material must never enter the repository
 *.jks
 *.keystore

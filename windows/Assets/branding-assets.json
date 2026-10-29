@@ -1,0 +1,18 @@
+﻿{
+    "version":  "0.9.0",
+    "originalSha256":  "925a9bd1c6c0e98a938f24b241662acf2ee42c6d58d6b36db77c5d071878ff3d",
+    "artworkFactorySha256":  "b03d536fa68fba084c2c059ea83e918cd22c803d15845c743e82468f9363b40e",
+    "iconSha256":  "94dba79035cfbbd19a2e2a07816dd2825e6383c3dbd8e3343c2485a1c934fe6c",
+    "sizes":  [
+                  16,
+                  20,
+                  24,
+                  32,
+                  40,
+                  48,
+                  64,
+                  128,
+                  256
+              ],
+    "rendering":  "Original Yoru2 portrait crop, downsampled independently with high-quality sampling; no lettering"
+}
