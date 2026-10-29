@@ -1,0 +1,6 @@
+<resources>
+  <style name="PlayerGlassAnimation">
+    <item name="android:windowEnterAnimation">@anim/player_glass_enter</item>
+    <item name="android:windowExitAnimation">@anim/player_glass_exit</item>
+  </style>
+</resources>

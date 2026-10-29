@@ -1,0 +1,32 @@
+[
+  {
+    "path": "platform-tools",
+    "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-win.zip",
+    "size": 8044989,
+    "sha1": "e03e78b1d80b396f1c3358e31251cb31740e1110"
+  },
+  {
+    "path": "platforms;android-36",
+    "url": "https://dl.google.com/android/repository/platform-36_r02.zip",
+    "size": 65878410,
+    "sha1": "2c1a80dd4d9f7d0e6dd336ec603d9b5c55a6f576"
+  },
+  {
+    "path": "build-tools;36.0.0",
+    "url": "https://dl.google.com/android/repository/build-tools_r36_windows.zip",
+    "size": 58699878,
+    "sha1": "f16ccffd34de8790dede813a6c7d8e2c11a27b50"
+  },
+  {
+    "path": "cmdline-tools;latest",
+    "url": "https://dl.google.com/android/repository/commandlinetools-win-16111833_latest.zip",
+    "size": 154957218,
+    "sha1": "57d04f2d75eb8e8fffc5000a987e5de4b5a63e9d"
+  },
+  {
+    "path": "emulator",
+    "url": "https://dl.google.com/android/repository/emulator-windows_x64-16632760.zip",
+    "size": 459732447,
+    "sha1": "5ecdf654031e9791e20c336c8d87d2238cb69f3a"
+  }
+]
